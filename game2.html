@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Secret Letters 💌</title>
+
+    <link rel="stylesheet" href="game2.css">
+
+</head>
+
+<body>
+
+    <!-- TITLE -->
+
+    <div class="title">
+
+        <h1>
+            Open The Correct Letter 💌
+        </h1>
+
+        <p>
+            One of these letters might be important…
+            or maybe not 😏
+        </p>
+
+    </div>
+
+
+    <!-- LETTER CONTAINER -->
+
+    <div class="letters-container">
+
+        <!-- LETTER 1 -->
+
+        <div class="letter" onclick="openLetter(1)">
+
+            💌
+
+        </div>
+
+
+        <!-- LETTER 2 -->
+
+        <div class="letter" onclick="openLetter(2)">
+
+            💌
+
+        </div>
+
+
+        <!-- LETTER 3 -->
+
+        <div class="letter" onclick="openLetter(3)">
+
+            💌
+
+        </div>
+
+
+        <!-- LETTER 4 -->
+
+        <div class="letter" onclick="openLetter(4)">
+
+            💌
+
+        </div>
+
+
+        <!-- LETTER 5 -->
+
+        <div class="letter" onclick="openLetter(5)">
+
+            💌
+
+        </div>
+
+
+        <!-- LETTER 6 -->
+
+        <div class="letter" onclick="openLetter(6)">
+
+            💌
+
+        </div>
+
+
+        <!-- LETTER 7 -->
+
+        <div class="letter" onclick="openLetter(7)">
+
+            💌
+
+        </div>
+
+
+        <!-- LETTER 8 -->
+
+        <div class="letter" onclick="openLetter(8)">
+
+            💌
+
+        </div>
+
+    </div>
+
+
+    <!-- POPUP -->
+
+    <div id="popup">
+
+        <div class="popup-box">
+
+            <h2 id="popupTitle">
+                💌
+            </h2>
+
+            <p id="popupMessage">
+            </p>
+
+            <button onclick="closePopup()">
+
+                Close ❤️
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        const correctLetter = 6;
+
+        function openLetter(number) {
+
+            const popup =
+                document.getElementById("popup");
+
+            const title =
+                document.getElementById("popupTitle");
+
+            const message =
+                document.getElementById("popupMessage");
+
+            popup.style.display = "flex";
+
+            /* CORRECT LETTER */
+
+            if (number === correctLetter) {
+
+                title.innerHTML =
+                    "Okay Fine you got it ❤️";
+
+                message.innerHTML =
+
+                    "i know tuje ek br mai nahi mila!! try more times...😭❤️";
+
+            }
+
+            /* LETTER 1 */
+
+            else if (number === 1) {
+
+                title.innerHTML =
+                    "Wrong One 😭";
+
+                message.innerHTML =
+
+                    "This envelope only contains emotional damage 😂";
+
+            }
+
+            /* LETTER 2 */
+
+            else if (number === 2) {
+
+                title.innerHTML =
+                    "Nope 😏";
+
+                message.innerHTML =
+
+                    "Itna easy thodi hai secret dhundhna 💌";
+
+            }
+
+            /* LETTER 3 */
+
+            else if (number === 3) {
+
+                title.innerHTML =
+                    "Aree 😭";
+
+                message.innerHTML =
+
+                    "Bas bas detective mat bano 😂";
+
+            }
+
+            /* LETTER 4 */
+
+            else if (number === 4) {
+
+                title.innerHTML =
+                    "404 Not Found 💔";
+
+                message.innerHTML =
+
+                    "System temporarily confused 😭";
+
+            }
+
+            /* LETTER 5 */
+
+            else if (number === 5) {
+
+                title.innerHTML =
+                    "Almost 😏";
+
+                message.innerHTML =
+
+                    "Close tha... but not close enough 💌";
+
+            }
+
+            /* LETTER 7 */
+
+            else if (number === 7) {
+
+                title.innerHTML =
+                    "Nice Try 😂";
+
+                message.innerHTML =
+
+                    "good efforts..😭";
+
+            }
+
+            /* LETTER 8 */
+
+            else {
+
+                title.innerHTML =
+                    "Still Wrong 😭";
+
+                message.innerHTML =
+
+                    "try again ❤️";
+
+            }
+        }
+
+        /* CLOSE POPUP */
+
+        function closePopup() {
+
+            document.getElementById("popup")
+                .style.display = "none";
+        }
+
+    </script>
+
+</body>
+
+</html>

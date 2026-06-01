@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TE401MJNN3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-TE401MJNN3');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For my one and only ex❤️</title>
+
+    <!-- CSS LINK -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HERO SECTION -->
+
+    <div class="hero">
+
+        <div class="hero-content">
+
+            <h1>For Ninnooo❤️</h1>
+
+            <p>
+                No matter how much time passes,
+                my heart still smiles at your name ❤️
+            </p>
+
+            <!-- BUTTON -->
+            <button id="enterBtn">
+                Enter ❤️
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- MUSIC -->
+
+    <audio id="bgMusic" loop>
+        <source src="music1.mp3" type="audio/mp3">
+    </audio>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        alert("Plz ghussa mt hona 😭❤️ ... bht mehnat se banai hai");
+        const btn = document.getElementById("enterBtn");
+        const music = document.getElementById("bgMusic");
+
+        btn.addEventListener("click", async () => {
+
+            try {
+
+                music.volume = 0.7;
+
+                await music.play();
+
+                /* Save music state */
+                sessionStorage.setItem("musicPlaying", "true");
+
+                /* Small animation */
+                btn.innerText = "Entering ❤️";
+
+                setTimeout(() => {
+
+                    window.location.href = "question.html";
+
+                }, 1200);
+
+            }
+
+            catch (error) {
+
+                console.log(error);
+
+            }
+
+        });
+
+    </script>
+
+    <!-- MINI GAMES SECTION -->
+
+    <section class="games-section">
+
+        <h2>
+            More games loading..🎮❤️
+        </h2>
+
+        <div class="games-container">
+
+            <!-- GAME 1 -->
+
+            <button class="game-btn" onclick="window.location.href='game1.html'">
+
+                💖 Catch The Hearts
+
+            </button>
+
+
+            <!-- GAME 2 -->
+
+            <button class="game-btn" onclick="window.location.href='game2.html'">
+
+                💌 Secret Love Letters
+
+            </button>
+
+
+            <!-- QUIZ -->
+
+
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>

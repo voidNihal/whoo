@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TE401MJNN3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-TE401MJNN3');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>One Question ❤️</title>
+
+    <link rel="stylesheet" href="question.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>
+            Do You Miss Me? ❤️
+        </h1>
+
+        <div class="buttons">
+
+            <button id="yesBtn">
+                Yes ❤️
+            </button>
+
+            <button id="noBtn">
+                No 😭
+            </button>
+
+        </div>
+
+    </div>
+
+    <audio id="bgMusic" autoplay loop>
+        <source src="music1.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        const music = document.getElementById("bgMusic");
+
+        music.volume = 0.9;
+
+        alert("Disclaimer: Don't dare to click on NO 😤❤️");
+
+        const noBtn = document.getElementById("noBtn");
+        const yesBtn = document.getElementById("yesBtn");
+
+        /* YES BUTTON */
+
+        yesBtn.addEventListener("click", () => {
+
+            window.location.href = "memories.html";
+
+        });
+
+        /* NO BUTTON RUNS AWAY */
+
+        function moveButton() {
+
+            const x = Math.random() * 250;
+            const y = Math.random() * 250;
+
+            noBtn.style.position = "absolute";
+
+            noBtn.style.left = `${x}px`;
+            noBtn.style.top = `${y}px`;
+        }
+
+        noBtn.addEventListener("mouseover", moveButton);
+
+        /* MOBILE SUPPORT */
+
+        noBtn.addEventListener("touchstart", moveButton);
+
+    </script>
+
+</body>
+
+</html>
