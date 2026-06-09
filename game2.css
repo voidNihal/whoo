@@ -1,0 +1,352 @@
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        linear-gradient(135deg,
+            #ffb6c1,
+            #ffc0cb,
+            #ffe4e9);
+
+    position: relative;
+}
+
+/* =========================
+   BACKGROUND IMAGE
+========================= */
+
+body::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        url("image2.jpeg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    opacity: 0.15;
+
+    filter: blur(2px);
+
+    z-index: -2;
+}
+
+/* GLOW EFFECT */
+
+body::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(rgba(255, 255, 255, 0.25),
+            transparent);
+
+    z-index: -1;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.title {
+
+    text-align: center;
+
+    margin-bottom: 60px;
+
+    color: white;
+
+    padding: 20px;
+}
+
+.title h1 {
+
+    font-size: 3rem;
+
+    margin-bottom: 15px;
+
+    text-shadow:
+        0 0 20px hotpink;
+}
+
+.title p {
+
+    font-size: 1.2rem;
+
+    opacity: 0.9;
+}
+
+/* =========================
+   LETTERS
+========================= */
+
+.letters-container {
+
+    display: flex;
+
+    gap: 40px;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+}
+
+/* LETTER */
+
+.letter {
+
+    width: 140px;
+
+    height: 140px;
+
+    background:
+        rgba(255, 255, 255, 0.15);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.25);
+
+    backdrop-filter: blur(12px);
+
+    border-radius: 25px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 4rem;
+
+    cursor: pointer;
+
+    transition: 0.4s ease;
+
+    box-shadow:
+        0 0 25px rgba(255, 105, 180, 0.3);
+}
+
+/* HOVER */
+
+.letter:hover {
+
+    transform:
+        translateY(-12px) scale(1.08);
+
+    box-shadow:
+        0 0 40px hotpink;
+}
+
+/* =========================
+   POPUP
+========================= */
+
+#popup {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(0, 0, 0, 0.65);
+
+    backdrop-filter: blur(8px);
+
+    display: none;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 999;
+}
+
+/* POPUP BOX */
+
+.popup-box {
+
+    width: 90%;
+
+    max-width: 500px;
+
+    background:
+        rgba(255, 255, 255, 0.12);
+
+    backdrop-filter: blur(15px);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.2);
+
+    border-radius: 30px;
+
+    padding: 40px;
+
+    text-align: center;
+
+    color: white;
+
+    box-shadow:
+        0 0 40px rgba(255, 105, 180, 0.35);
+
+    animation: popupAnim 0.4s ease;
+}
+
+/* POPUP ANIMATION */
+
+@keyframes popupAnim {
+
+    from {
+
+        transform:
+            scale(0.7);
+
+        opacity: 0;
+    }
+
+    to {
+
+        transform:
+            scale(1);
+
+        opacity: 1;
+    }
+}
+
+/* TEXT */
+
+.popup-box h2 {
+
+    font-size: 2.5rem;
+
+    margin-bottom: 20px;
+
+    text-shadow:
+        0 0 15px hotpink;
+}
+
+.popup-box p {
+
+    font-size: 1.2rem;
+
+    line-height: 1.8;
+
+    margin-bottom: 30px;
+}
+
+/* BUTTON */
+
+.popup-box button {
+
+    padding: 14px 35px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(45deg,
+            hotpink,
+            deeppink);
+
+    color: white;
+
+    font-size: 1rem;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+
+    box-shadow:
+        0 0 20px hotpink;
+}
+
+/* BUTTON HOVER */
+
+.popup-box button:hover {
+
+    transform:
+        scale(1.08);
+
+    box-shadow:
+        0 0 30px deeppink;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px) {
+
+    .title h1 {
+
+        font-size: 2.2rem;
+    }
+
+    .title p {
+
+        font-size: 1rem;
+    }
+
+    .letters-container {
+
+        gap: 20px;
+    }
+
+    .letter {
+
+        width: 110px;
+
+        height: 110px;
+
+        font-size: 3rem;
+    }
+
+    .popup-box {
+
+        padding: 30px 20px;
+    }
+
+    .popup-box h2 {
+
+        font-size: 2rem;
+    }
+
+    .popup-box p {
+
+        font-size: 1rem;
+    }
+}
