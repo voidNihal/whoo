@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TE401MJNN3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-TE401MJNN3');
+    </script>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Catch the Hearts 💖</title>
+
+    <link rel="stylesheet" href="game1.css">
+
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+
+    <div class="top-bar">
+
+        <h1>
+            Catch the Hearts 💖
+        </h1>
+
+        <div class="score-board">
+
+            Score :
+            <span id="score">
+                0
+            </span>
+
+        </div>
+
+        <div class="timer">
+
+            Time :
+            <span id="time">
+                30
+            </span>s
+
+        </div>
+
+    </div>
+
+
+    <!-- GAME AREA -->
+
+    <div id="gameArea">
+
+        <!-- PLAYER -->
+
+        <div id="basket">
+            💌
+        </div>
+
+    </div>
+
+
+    <!-- GAME OVER SCREEN -->
+
+    <div id="gameOver">
+
+        <h1>
+            You Collected My Heart ❤️
+        </h1>
+
+        <p>
+
+            Final Score :
+            <span id="finalScore">
+                0
+            </span>
+
+        </p>
+
+        <button onclick="location.reload()">
+
+            Play Again 💖
+
+        </button>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        const gameArea =
+        document.getElementById("gameArea");
+
+        const basket =
+        document.getElementById("basket");
+
+        const scoreText =
+        document.getElementById("score");
+
+        const timeText =
+        document.getElementById("time");
+
+        const finalScore =
+        document.getElementById("finalScore");
+
+        const gameOver =
+        document.getElementById("gameOver");
+
+        let score = 0;
+
+        let timeLeft = 30;
+
+        let basketX = window.innerWidth / 2;
+
+        /* MOVE BASKET */
+
+        document.addEventListener("mousemove",
+        (e)=>{
+
+            basketX = e.clientX;
+
+            basket.style.left =
+            basketX - 40 + "px";
+
+        });
+
+        /* MOBILE TOUCH */
+
+        document.addEventListener("touchmove",
+        (e)=>{
+
+            basketX =
+            e.touches[0].clientX;
+
+            basket.style.left =
+            basketX - 40 + "px";
+
+        });
+
+        /* CREATE HEART */
+
+        function createHeart(){
+
+            const heart =
+            document.createElement("div");
+
+            heart.classList.add("heart");
+
+            heart.innerHTML = "❤️";
+
+            heart.style.left =
+            Math.random() *
+            (window.innerWidth - 40) + "px";
+
+            gameArea.appendChild(heart);
+
+            let heartTop = 0;
+
+            const fall =
+            setInterval(()=>{
+
+                heartTop += 5;
+
+                heart.style.top =
+                heartTop + "px";
+
+                const basketRect =
+                basket.getBoundingClientRect();
+
+                const heartRect =
+                heart.getBoundingClientRect();
+
+                /* COLLISION */
+
+                if(
+
+                    heartRect.bottom >=
+                    basketRect.top &&
+
+                    heartRect.left <
+                    basketRect.right &&
+
+                    heartRect.right >
+                    basketRect.left
+
+                ){
+
+                    score++;
+
+                    scoreText.innerText =
+                    score;
+
+                    heart.remove();
+
+                    clearInterval(fall);
+                }
+
+                /* REMOVE */
+
+                if(heartTop >
+                window.innerHeight){
+
+                    heart.remove();
+
+                    clearInterval(fall);
+                }
+
+            },20);
+        }
+
+        /* HEART SPAWN */
+
+        const spawnHearts =
+        setInterval(createHeart,700);
+
+        /* TIMER */
+
+        const timer =
+        setInterval(()=>{
+
+            timeLeft--;
+
+            timeText.innerText =
+            timeLeft;
+
+            if(timeLeft <= 0){
+
+                clearInterval(timer);
+
+                clearInterval(spawnHearts);
+
+                gameOver.style.display =
+                "flex";
+
+                finalScore.innerText =
+                score;
+            }
+
+        },1000);
+
+    </script>
+
+</body>
+
+</html>
